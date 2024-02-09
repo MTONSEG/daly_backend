@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_images_products",
+  "info": {
+    "displayName": "Products",
+    "icon": "picture"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string"
+    }
+  }
+}
