@@ -9,8 +9,8 @@
   },
   "scripts": {
     "build": "strapi build",
-    "develop": "strapi develop",
-    "start": "strapi start",
+    "develop": "NODE_ENV=development strapi develop",
+    "start": "NODE_ENV=production strapi start",
     "strapi": "strapi"
   },
   "dependencies": {
