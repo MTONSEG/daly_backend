@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "homes",
+  "info": {
+    "singularName": "home",
+    "pluralName": "homes",
+    "displayName": "Home",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero_banners": {
+      "displayName": "Hero Banners",
+      "type": "component",
+      "repeatable": true,
+      "component": "home.hero-banners"
+    },
+    "middle_banners": {
+      "type": "component",
+      "repeatable": true,
+      "component": "home.hero-banners"
+    },
+    "bottom_bunners": {
+      "type": "component",
+      "repeatable": true,
+      "component": "home.hero-banners"
+    },
+    "support_bunners": {
+      "type": "component",
+      "repeatable": true,
+      "component": "home.hero-banners"
+    },
+    "subscribe": {
+      "type": "boolean"
+    }
+  }
+}
