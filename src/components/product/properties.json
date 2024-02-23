@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_product_properties",
+  "info": {
+    "displayName": "Properties",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "memory": {
+      "type": "string"
+    },
+    "ram": {
+      "type": "string"
+    },
+    "resolution": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "cpu": {
+      "type": "string"
+    },
+    "diagonale": {
+      "type": "string"
+    },
+    "display": {
+      "type": "string"
+    }
+  }
+}

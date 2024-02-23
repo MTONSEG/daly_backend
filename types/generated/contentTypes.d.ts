@@ -764,6 +764,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    product_comments: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::product-comment.product-comment'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -809,6 +814,12 @@ export interface ApiBrandBrand extends Schema.CollectionType {
       'oneToMany',
       'api::product.product'
     >;
+    icon: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -900,7 +911,7 @@ export interface ApiHomeHome extends Schema.SingleType {
     hero_banners: Attribute.Component<'home.hero-banners', true>;
     middle_banners: Attribute.Component<'home.hero-banners', true>;
     bottom_bunners: Attribute.Component<'home.hero-banners', true>;
-    support_bunners: Attribute.Component<'home.hero-banners', true>;
+    faq_links: Attribute.Component<'home.hero-banners', true>;
     subscribe: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -908,6 +919,48 @@ export interface ApiHomeHome extends Schema.SingleType {
     createdBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiOrderOrder extends Schema.CollectionType {
+  collectionName: 'orders';
+  info: {
+    singularName: 'order';
+    pluralName: 'orders';
+    displayName: 'Order';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    city: Attribute.String;
+    deliveryData: Attribute.Date;
+    deliveryTime: Attribute.String;
+    address: Attribute.String;
+    flat: Attribute.String;
+    comment: Attribute.String;
+    payment: Attribute.String;
+    name: Attribute.String;
+    surn: Attribute.String;
+    phone: Attribute.String;
+    email: Attribute.Email;
+    deliveryType: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::order.order',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::order.order',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -947,7 +1000,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    discountPercentage: Attribute.Decimal &
+    discount: Attribute.Decimal &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -987,6 +1040,23 @@ export interface ApiProductProduct extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    hit: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    product_comments: Attribute.Relation<
+      'api::product.product',
+      'oneToMany',
+      'api::product-comment.product-comment'
+    >;
+    properties: Attribute.Component<'product.properties'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1011,6 +1081,115 @@ export interface ApiProductProduct extends Schema.CollectionType {
   };
 }
 
+export interface ApiProductCommentProductComment extends Schema.CollectionType {
+  collectionName: 'product_comments';
+  info: {
+    singularName: 'product-comment';
+    pluralName: 'product-comments';
+    displayName: 'Product comment';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    text: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    rating: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    product: Attribute.Relation<
+      'api::product-comment.product-comment',
+      'manyToOne',
+      'api::product.product'
+    >;
+    author: Attribute.Relation<
+      'api::product-comment.product-comment',
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    email: Attribute.Email &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product-comment.product-comment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product-comment.product-comment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::product-comment.product-comment',
+      'oneToMany',
+      'api::product-comment.product-comment'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiSupportRequestSupportRequest extends Schema.CollectionType {
+  collectionName: 'support_requests';
+  info: {
+    singularName: 'support-request';
+    pluralName: 'support-requests';
+    displayName: 'Support Request';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    phone: Attribute.String;
+    email: Attribute.Email;
+    message: Attribute.String;
+    image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::support-request.support-request',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::support-request.support-request',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1032,7 +1211,10 @@ declare module '@strapi/types' {
       'api::brand.brand': ApiBrandBrand;
       'api::category.category': ApiCategoryCategory;
       'api::home.home': ApiHomeHome;
+      'api::order.order': ApiOrderOrder;
       'api::product.product': ApiProductProduct;
+      'api::product-comment.product-comment': ApiProductCommentProductComment;
+      'api::support-request.support-request': ApiSupportRequestSupportRequest;
     }
   }
 }

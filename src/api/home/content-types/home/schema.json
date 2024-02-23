@@ -28,7 +28,7 @@
       "repeatable": true,
       "component": "home.hero-banners"
     },
-    "support_bunners": {
+    "faq_links": {
       "type": "component",
       "repeatable": true,
       "component": "home.hero-banners"

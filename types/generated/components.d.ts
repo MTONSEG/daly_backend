@@ -24,6 +24,24 @@ export interface ImagesProducts extends Schema.Component {
   };
 }
 
+export interface ProductProperties extends Schema.Component {
+  collectionName: 'components_product_properties';
+  info: {
+    displayName: 'Properties';
+    icon: 'bulletList';
+    description: '';
+  };
+  attributes: {
+    memory: Attribute.String;
+    ram: Attribute.String;
+    resolution: Attribute.String;
+    color: Attribute.String;
+    cpu: Attribute.String;
+    diagonale: Attribute.String;
+    display: Attribute.String;
+  };
+}
+
 export interface ProductTrands extends Schema.Component {
   collectionName: 'components_product_trands';
   info: {
@@ -38,6 +56,7 @@ declare module '@strapi/types' {
     export interface Components {
       'home.hero-banners': HomeHeroBanners;
       'images.products': ImagesProducts;
+      'product.properties': ProductProperties;
       'product.trands': ProductTrands;
     }
   }

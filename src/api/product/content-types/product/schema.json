@@ -40,7 +40,7 @@
       },
       "type": "decimal"
     },
-    "discountPercentage": {
+    "discount": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -94,6 +94,31 @@
         }
       },
       "component": "images.products"
+    },
+    "hit": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "boolean"
+    },
+    "product_comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-comment.product-comment",
+      "mappedBy": "product"
+    },
+    "properties": {
+      "displayName": "Properties",
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "product.properties"
     }
   }
 }

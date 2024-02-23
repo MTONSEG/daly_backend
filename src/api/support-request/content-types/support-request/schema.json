@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "support_requests",
+  "info": {
+    "singularName": "support-request",
+    "pluralName": "support-requests",
+    "displayName": "Support Request"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "message": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
