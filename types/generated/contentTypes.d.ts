@@ -769,6 +769,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'oneToMany',
       'api::product-comment.product-comment'
     >;
+    tests: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::test.test'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1196,6 +1201,32 @@ export interface ApiSupportRequestSupportRequest extends Schema.CollectionType {
   };
 }
 
+export interface ApiTestTest extends Schema.CollectionType {
+  collectionName: 'tests';
+  info: {
+    singularName: 'test';
+    pluralName: 'tests';
+    displayName: 'Test';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    author: Attribute.Relation<
+      'api::test.test',
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::test.test', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::test.test', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1221,6 +1252,7 @@ declare module '@strapi/types' {
       'api::product.product': ApiProductProduct;
       'api::product-comment.product-comment': ApiProductCommentProductComment;
       'api::support-request.support-request': ApiSupportRequestSupportRequest;
+      'api::test.test': ApiTestTest;
     }
   }
 }

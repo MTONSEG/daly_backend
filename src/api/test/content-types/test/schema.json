@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tests",
+  "info": {
+    "singularName": "test",
+    "pluralName": "tests",
+    "displayName": "Test"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "tests"
+    }
+  }
+}
