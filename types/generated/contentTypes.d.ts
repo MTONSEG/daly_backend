@@ -907,6 +907,87 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiFilterFilter extends Schema.CollectionType {
+  collectionName: 'filters';
+  info: {
+    singularName: 'filter';
+    pluralName: 'filters';
+    displayName: 'Filter';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    label: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    min_price: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    max_price: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    options: Attribute.JSON &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    brands: Attribute.Relation<
+      'api::filter.filter',
+      'oneToMany',
+      'api::brand.brand'
+    >;
+    categories: Attribute.Relation<
+      'api::filter.filter',
+      'oneToMany',
+      'api::category.category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::filter.filter',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::filter.filter',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::filter.filter',
+      'oneToMany',
+      'api::filter.filter'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiHomeHome extends Schema.SingleType {
   collectionName: 'homes';
   info: {
@@ -1247,6 +1328,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::brand.brand': ApiBrandBrand;
       'api::category.category': ApiCategoryCategory;
+      'api::filter.filter': ApiFilterFilter;
       'api::home.home': ApiHomeHome;
       'api::order.order': ApiOrderOrder;
       'api::product.product': ApiProductProduct;
