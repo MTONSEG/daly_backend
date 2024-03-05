@@ -48,16 +48,6 @@
       },
       "type": "integer"
     },
-    "brands": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::brand.brand"
-    },
-    "categories": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::category.category"
-    },
     "options": {
       "displayName": "Options",
       "type": "component",
@@ -68,6 +58,28 @@
         }
       },
       "component": "catalog.options"
+    },
+    "brands": {
+      "displayName": "brands",
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "catalog.brands"
+    },
+    "categories": {
+      "displayName": "categories",
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "catalog.categories"
     }
   }
 }

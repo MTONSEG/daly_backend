@@ -1,5 +1,35 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface CatalogBrands extends Schema.Component {
+  collectionName: 'components_catalog_brands';
+  info: {
+    displayName: 'brands';
+    icon: 'priceTag';
+    description: '';
+  };
+  attributes: {
+    brand: Attribute.Relation<'catalog.brands', 'oneToOne', 'api::brand.brand'>;
+    active: Attribute.Boolean & Attribute.DefaultTo<false>;
+  };
+}
+
+export interface CatalogCategories extends Schema.Component {
+  collectionName: 'components_catalog_categories';
+  info: {
+    displayName: 'categories';
+    icon: 'apps';
+    description: '';
+  };
+  attributes: {
+    category: Attribute.Relation<
+      'catalog.categories',
+      'oneToOne',
+      'api::category.category'
+    >;
+    active: Attribute.Boolean & Attribute.DefaultTo<false>;
+  };
+}
+
 export interface CatalogOptions extends Schema.Component {
   collectionName: 'components_catalog_options';
   info: {
@@ -67,6 +97,8 @@ export interface ProductTrands extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'catalog.brands': CatalogBrands;
+      'catalog.categories': CatalogCategories;
       'catalog.options': CatalogOptions;
       'home.hero-banners': HomeHeroBanners;
       'images.products': ImagesProducts;
