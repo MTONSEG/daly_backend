@@ -948,12 +948,6 @@ export interface ApiFilterFilter extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    options: Attribute.JSON &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     brands: Attribute.Relation<
       'api::filter.filter',
       'oneToMany',
@@ -964,6 +958,12 @@ export interface ApiFilterFilter extends Schema.CollectionType {
       'oneToMany',
       'api::category.category'
     >;
+    options: Attribute.Component<'catalog.options', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

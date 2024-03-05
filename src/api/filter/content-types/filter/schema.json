@@ -48,14 +48,6 @@
       },
       "type": "integer"
     },
-    "options": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "json"
-    },
     "brands": {
       "type": "relation",
       "relation": "oneToMany",
@@ -65,6 +57,17 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::category.category"
+    },
+    "options": {
+      "displayName": "Options",
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "catalog.options"
     }
   }
 }

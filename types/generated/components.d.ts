@@ -1,5 +1,18 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface CatalogOptions extends Schema.Component {
+  collectionName: 'components_catalog_options';
+  info: {
+    displayName: 'Options';
+    icon: 'grid';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    active: Attribute.Boolean & Attribute.DefaultTo<false>;
+  };
+}
+
 export interface HomeHeroBanners extends Schema.Component {
   collectionName: 'components_home_hero_banners';
   info: {
@@ -54,6 +67,7 @@ export interface ProductTrands extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'catalog.options': CatalogOptions;
       'home.hero-banners': HomeHeroBanners;
       'images.products': ImagesProducts;
       'product.properties': ProductProperties;
