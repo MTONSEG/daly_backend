@@ -49,22 +49,37 @@
       "type": "integer"
     },
     "options": {
+      "displayName": "Options",
+      "type": "component",
+      "repeatable": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "json"
+      "component": "catalog.options"
     },
     "brands": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::brand.brand"
+      "displayName": "brands",
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "catalog.brands"
     },
     "categories": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::category.category"
+      "displayName": "categories",
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "catalog.categories"
     }
   }
 }

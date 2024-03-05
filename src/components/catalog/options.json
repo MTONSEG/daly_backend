@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_catalog_options",
+  "info": {
+    "displayName": "Options",
+    "icon": "grid",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

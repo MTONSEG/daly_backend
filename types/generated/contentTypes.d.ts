@@ -948,22 +948,24 @@ export interface ApiFilterFilter extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    options: Attribute.JSON &
+    options: Attribute.Component<'catalog.options', true> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    brands: Attribute.Relation<
-      'api::filter.filter',
-      'oneToMany',
-      'api::brand.brand'
-    >;
-    categories: Attribute.Relation<
-      'api::filter.filter',
-      'oneToMany',
-      'api::category.category'
-    >;
+    brands: Attribute.Component<'catalog.brands', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    categories: Attribute.Component<'catalog.categories', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_catalog_categories",
+  "info": {
+    "displayName": "categories",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "active": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
