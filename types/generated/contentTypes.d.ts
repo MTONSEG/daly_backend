@@ -1007,6 +1007,7 @@ export interface ApiHomeHome extends Schema.SingleType {
     bottom_bunners: Attribute.Component<'home.hero-banners', true>;
     faq_links: Attribute.Component<'home.hero-banners', true>;
     subscribe: Attribute.Boolean;
+    brandsLogo: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
