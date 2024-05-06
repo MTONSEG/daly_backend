@@ -1252,12 +1252,12 @@ export interface ApiProductCommentProductComment extends Schema.CollectionType {
   };
 }
 
-export interface ApiSubscribeSubscribe extends Schema.SingleType {
+export interface ApiSubscribeSubscribe extends Schema.CollectionType {
   collectionName: 'subscribes';
   info: {
     singularName: 'subscribe';
     pluralName: 'subscribes';
-    displayName: 'subscribe';
+    displayName: 'Subscribe';
   };
   options: {
     draftAndPublish: true;

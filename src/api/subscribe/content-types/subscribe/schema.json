@@ -1,10 +1,10 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "subscribes",
   "info": {
     "singularName": "subscribe",
     "pluralName": "subscribes",
-    "displayName": "subscribe"
+    "displayName": "Subscribe"
   },
   "options": {
     "draftAndPublish": true
