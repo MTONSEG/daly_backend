@@ -1009,6 +1009,7 @@ export interface ApiHomeHome extends Schema.SingleType {
     subscribe: Attribute.Boolean;
     brandsLogo: Attribute.Media;
     termsImage: Attribute.Media;
+    subscriber: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
