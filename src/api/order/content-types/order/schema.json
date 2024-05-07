@@ -47,6 +47,12 @@
     },
     "deliveryType": {
       "type": "string"
+    },
+    "products": {
+      "displayName": "products",
+      "type": "component",
+      "repeatable": true,
+      "component": "product.products"
     }
   }
 }
