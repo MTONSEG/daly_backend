@@ -1007,6 +1007,8 @@ export interface ApiHomeHome extends Schema.SingleType {
     bottom_bunners: Attribute.Component<'home.hero-banners', true>;
     faq_links: Attribute.Component<'home.hero-banners', true>;
     subscribe: Attribute.Boolean;
+    brandsLogo: Attribute.Media;
+    termsImage: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1251,6 +1253,36 @@ export interface ApiProductCommentProductComment extends Schema.CollectionType {
   };
 }
 
+export interface ApiSubscribeSubscribe extends Schema.CollectionType {
+  collectionName: 'subscribes';
+  info: {
+    singularName: 'subscribe';
+    pluralName: 'subscribes';
+    displayName: 'Subscribe';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    subscriber: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::subscribe.subscribe',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::subscribe.subscribe',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSupportRequestSupportRequest extends Schema.CollectionType {
   collectionName: 'support_requests';
   info: {
@@ -1336,6 +1368,7 @@ declare module '@strapi/types' {
       'api::order.order': ApiOrderOrder;
       'api::product.product': ApiProductProduct;
       'api::product-comment.product-comment': ApiProductCommentProductComment;
+      'api::subscribe.subscribe': ApiSubscribeSubscribe;
       'api::support-request.support-request': ApiSupportRequestSupportRequest;
       'api::test.test': ApiTestTest;
     }
