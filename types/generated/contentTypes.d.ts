@@ -1043,6 +1043,7 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     phone: Attribute.String;
     email: Attribute.Email;
     deliveryType: Attribute.String;
+    products: Attribute.Component<'product.products', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
