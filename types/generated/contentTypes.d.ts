@@ -1259,12 +1259,14 @@ export interface ApiSubscribeSubscribe extends Schema.CollectionType {
     singularName: 'subscribe';
     pluralName: 'subscribes';
     displayName: 'Subscribe';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     subscriber: Attribute.String;
+    subscribe: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
