@@ -1317,36 +1317,60 @@ export interface ApiSubscribeSubscribe extends Schema.CollectionType {
   };
 }
 
-export interface ApiSupportRequestSupportRequest extends Schema.CollectionType {
-  collectionName: 'support_requests';
+export interface ApiSubscribeSubscribe extends Schema.CollectionType {
+  collectionName: 'subscribes';
   info: {
-    singularName: 'support-request';
-    pluralName: 'support-requests';
-    displayName: 'Support Request';
+    singularName: 'subscribe';
+    pluralName: 'subscribes';
+    displayName: 'Subscribe';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
-    phone: Attribute.String;
-    email: Attribute.Email;
-    message: Attribute.String;
-    image: Attribute.Media;
+    subscriber: Attribute.String;
+    subscribe: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::support-request.support-request',
+      'api::subscribe.subscribe',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::support-request.support-request',
+      'api::subscribe.subscribe',
       'oneToOne',
       'admin::user'
     > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTestTest extends Schema.CollectionType {
+  collectionName: 'tests';
+  info: {
+    singularName: 'test';
+    pluralName: 'tests';
+    displayName: 'Test';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    author: Attribute.Relation<
+      'api::test.test',
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::test.test', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::test.test', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -1372,6 +1396,7 @@ declare module '@strapi/types' {
       'api::brand.brand': ApiBrandBrand;
       'api::category.category': ApiCategoryCategory;
       'api::filter.filter': ApiFilterFilter;
+      'api::footer.footer': ApiFooterFooter;
       'api::home.home': ApiHomeHome;
       'api::order.order': ApiOrderOrder;
       'api::product.product': ApiProductProduct;
