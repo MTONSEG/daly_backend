@@ -57,6 +57,12 @@
         "videos",
         "audios"
       ]
+    },
+    "terms": {
+      "displayName": "terms",
+      "type": "component",
+      "repeatable": true,
+      "component": "home.terms"
     }
   }
 }
