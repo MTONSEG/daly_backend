@@ -56,6 +56,18 @@ export interface HomeHeroBanners extends Schema.Component {
   };
 }
 
+export interface HomeTerms extends Schema.Component {
+  collectionName: 'components_home_terms';
+  info: {
+    displayName: 'terms';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    image: Attribute.Media;
+  };
+}
+
 export interface ImagesProducts extends Schema.Component {
   collectionName: 'components_images_products';
   info: {
@@ -117,6 +129,7 @@ declare module '@strapi/types' {
       'catalog.categories': CatalogCategories;
       'catalog.options': CatalogOptions;
       'home.hero-banners': HomeHeroBanners;
+      'home.terms': HomeTerms;
       'images.products': ImagesProducts;
       'product.products': ProductProducts;
       'product.properties': ProductProperties;
