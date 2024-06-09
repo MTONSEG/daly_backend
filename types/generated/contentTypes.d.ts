@@ -1080,12 +1080,6 @@ export interface ApiHomeHome extends Schema.SingleType {
           localized: true;
         };
       }>;
-    termsImage: Attribute.Media &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     terms: Attribute.Component<'home.terms', true> &
       Attribute.SetPluginOptions<{
         i18n: {
