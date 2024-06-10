@@ -10,31 +10,60 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "hero_banners": {
       "displayName": "Hero Banners",
       "type": "component",
       "repeatable": true,
-      "component": "home.hero-banners"
+      "component": "home.hero-banners",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "middle_banners": {
       "type": "component",
       "repeatable": true,
-      "component": "home.hero-banners"
+      "component": "home.hero-banners",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "bottom_bunners": {
       "type": "component",
       "repeatable": true,
-      "component": "home.hero-banners"
+      "component": "home.hero-banners",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "faq_links": {
       "type": "component",
       "repeatable": true,
-      "component": "home.hero-banners"
+      "component": "home.hero-banners",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "subscribe": {
-      "type": "boolean"
+      "type": "boolean",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "brandsLogo": {
       "type": "media",
@@ -45,24 +74,23 @@
         "files",
         "videos",
         "audios"
-      ]
-    },
-    "termsImage": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "terms": {
       "displayName": "terms",
       "type": "component",
       "repeatable": true,
-      "component": "home.terms"
+      "component": "home.terms",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

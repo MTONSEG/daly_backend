@@ -1038,15 +1038,54 @@ export interface ApiHomeHome extends Schema.SingleType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    hero_banners: Attribute.Component<'home.hero-banners', true>;
-    middle_banners: Attribute.Component<'home.hero-banners', true>;
-    bottom_bunners: Attribute.Component<'home.hero-banners', true>;
-    faq_links: Attribute.Component<'home.hero-banners', true>;
-    subscribe: Attribute.Boolean;
-    brandsLogo: Attribute.Media;
-    termsImage: Attribute.Media;
-    terms: Attribute.Component<'home.terms', true>;
+    hero_banners: Attribute.Component<'home.hero-banners', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    middle_banners: Attribute.Component<'home.hero-banners', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    bottom_bunners: Attribute.Component<'home.hero-banners', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    faq_links: Attribute.Component<'home.hero-banners', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    subscribe: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    brandsLogo: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    terms: Attribute.Component<'home.terms', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1054,6 +1093,12 @@ export interface ApiHomeHome extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::home.home',
+      'oneToMany',
+      'api::home.home'
+    >;
+    locale: Attribute.String;
   };
 }
 
