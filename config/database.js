@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === "production") {
     connection: {
       client: "postgres",
       connection: {
-        host: env("LOCAL_DATABASE_HOST"),
+        host: env('DATABASE_HOST', 'ep-small-grass-a2gcqwg0.eu-central-1.aws.neon.tech'),
         port: env.int("LOCAL_DATABASE_PORT", 5432),
         database: env("LOCAL_DATABASE_NAME", 'shob_db'),
         user: env("LOCAL_DATABASE_USERNAME", 'mtonsiq'),
