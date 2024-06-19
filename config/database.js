@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === "production") {
     connection: {
       client: "postgres",
       connection: {
-        host: env('DATABASE_HOST'),
+        host: env('LOCAL_DATABASE_HOST'),
         port: env.int("LOCAL_DATABASE_PORT"),
         database: env("LOCAL_DATABASE_NAME"),
         user: env("LOCAL_DATABASE_USERNAME"),
